@@ -59,10 +59,10 @@ print(list(filter_by_currency(transactions, "USD")))
 
 
 def transaction_descriptions(transactions: list) -> str:
-    """Функция возвращает описание (descriptions) транзакции"""
+    """Функция возвращает описание (description) транзакции"""
 
     for dict_description in transactions:
-        print(dict_description["description"])
+        yield dict_description["description"]
 
 
 transaction_descriptions(transactions)
@@ -76,8 +76,9 @@ def card_number_generator(a: int, b: int) -> str:
         while len(card_number) < 16:
             card_number = "0" + card_number
         formatted_card_number = f"{card_number[0:4]} {card_number[4:8]} {card_number[8:12]} {card_number[12:16]}"
+        # print(type(formatted_card_number))
         yield formatted_card_number
 
 
-for card_number in card_number_generator(15000, 15050):
+for card_number in card_number_generator(15000, 15011):
     print(*list(card_number))
