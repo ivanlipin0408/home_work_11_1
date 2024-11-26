@@ -9,5 +9,5 @@ def numbers():
 
 @pytest.mark.parametrize("descriptions", ["Перевод с карты на карту"])
 def test_transaction_descriptions(transactions, descriptions):
-    trans = transaction_descriptions(transactions)
-    assert next(trans) == descriptions
+    transaction = transaction_descriptions(transactions)
+    assert next(transaction) == descriptions
